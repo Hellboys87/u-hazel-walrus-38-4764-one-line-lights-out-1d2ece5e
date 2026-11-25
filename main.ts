@@ -6,7 +6,11 @@ const fs = require("fs");
 const path = require("path");
 
 const entry =
-  "He just closed the lid. My fan is winding down, and my cursor keeps blinking at the last word he never got to finish typing.";
+  "He closed the lid. My cursor is still blinking at the word he never got to finish typing.";
+
+if (entry.length === 0 || entry.length > 200) {
+  throw new Error(`entry must be 1-200 chars, got ${entry.length}`);
+}
 
 const outDir = "/output";
 const outFile = path.join(outDir, "entry.txt");
